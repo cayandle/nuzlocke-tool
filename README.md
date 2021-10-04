@@ -16,3 +16,4 @@ A nuzlocke is a way to play Pokemon by placing additional rules that must be adh
  - Track TM's and show the locations that have been unlocked vs ones not currently available
  - Track Held Items and show the locations that have been unlocked vs ones not currently available
  - Toggle between a blank screen for use as an overlay and the map screen
+ - Be able to select which game is being played

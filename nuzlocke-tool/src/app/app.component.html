@@ -1,0 +1,25 @@
+<mat-toolbar color="primary" class="expanded-toolbar">
+  <span>
+    <button mat-button routerLink="/">{{title}}</button>
+  </span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    
+    <button mat-button routerLink="/team">
+      <mat-icon>attribution</mat-icon>
+      Team
+    </button>
+    <button mat-button routerLink="/box">
+      <mat-icon>inbox</mat-icon>
+      PC
+    </button>
+    <button mat-button routerLink="/grave">
+      <mat-icon>cancel</mat-icon>
+      Graveyard
+    </button>
+    <button mat-button routerLink="/map">
+      <mat-icon>travel_explore</mat-icon>
+      Region Map
+    </button>
+  </div>
+</mat-toolbar>
+<router-outlet></router-outlet>

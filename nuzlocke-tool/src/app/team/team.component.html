@@ -1,0 +1,12 @@
+<p>team works!</p>
+<mat-slider min="5" max="300" step="5"  value = {{value}} (input)="onSlide($event)"></mat-slider>
+<table>
+    <tr *ngFor="let poke of members">
+        <td>
+            <div >
+                <img src={{poke.sprite}} width={{value}} height={{value}}>
+            </div>
+        </td>
+    </tr>
+</table>
+

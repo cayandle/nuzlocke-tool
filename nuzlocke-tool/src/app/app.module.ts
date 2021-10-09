@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { TeamComponent } from './team/team.component';
@@ -15,6 +15,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule} from '@angular/material/button'; 
 import { MatSliderModule} from '@angular/material/slider'; 
 import { FormsModule } from '@angular/forms';
+import { GenSelectComponent } from './gen-select/gen-select.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { FormsModule } from '@angular/forms';
     GraveComponent,
     MapComponent,
     RouteComponent,
-    BadgesComponent
+    BadgesComponent,
+    GenSelectComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { FormsModule } from '@angular/forms';
     MatIconModule,
     MatButtonModule,
     MatSliderModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

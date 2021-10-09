@@ -5,20 +5,32 @@ export interface IPokemon{
     EVAmount:number;
     possibleItems:IItem[];
     possibleMoves:IMove[];
+    possibleAbilities:IAbility[];
+  }
+
+export interface IAbility{
+    name:string;
+    battleEffect:string;
+    outsideEffect:string;
   }
 
 export interface IOwned{
   pokemon:IPokemon;
-  canEvolve:boolean;
-  location:IRoute;
-  status:string;
   level:number;
   heldItem:IItem;
   moves:IMove[];
+  ability:IAbility;
+}
+
+export interface IPlayerOwned{
+  owned:IOwned;
+  canEvolve:boolean;
+  location:IRoute;
+  status:string;
 }
 
 export interface IWild{
-  name:IPokemon;  
+  pokemon:IPokemon;  
   method:string;
   possibleLevels:number[];
   odds:number;
@@ -26,7 +38,7 @@ export interface IWild{
 }
 
 export interface IBuyable{
-  pokemon:IPokemon;
+  owned:IOwned;
   price:number;
   currency:string;
 }
@@ -48,24 +60,23 @@ export interface ILocation{
 export interface IRoute{
   name:string;
   locations:ILocation[];
+  caught:boolean;
 }
 
 export interface IShop{
   name:string;
   items:IItem[];
-  TMs:ITM[];
   pokemon:IBuyable[];
 }
 
 export interface IRegion{
   name:string;
   routes:IRoute[];
-  game:string;
 }
 
 export interface ITrainer{
+  name:string;
   team:IOwned[];
-  reward:number;
   possibleUsableItems:IItem[];
 }
 
@@ -74,10 +85,10 @@ export interface IItem{
   effect:string;
   price:number;
   currency:string;
+  TM?:ITM;
 }
 
 export interface ITM{
-  name:string;
   number:number;
   move:IMove;
 }
@@ -92,4 +103,10 @@ export interface IMove{
   secondaryEffectChance:number;
   pp:number;
   isPhysical:boolean;
+  levelLearned:number;
+}
+
+export interface IGame{
+  name:string;
+  region:IRegion[];
 }

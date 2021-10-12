@@ -30,6 +30,7 @@ export class PokeAPIService {
 
   GetBlankSlot(){
     this.http.get<any>(this.url+"item/poke-ball").subscribe(result => this.slot = result.sprites.default);
+    console.log(this.slot);
     return this.slot;
   }
 

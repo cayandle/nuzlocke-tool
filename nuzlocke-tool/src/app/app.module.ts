@@ -16,6 +16,8 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatSliderModule} from '@angular/material/slider'; 
 import { FormsModule } from '@angular/forms';
 import { GenSelectComponent } from './gen-select/gen-select.component';
+import { MatOptionModule } from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -37,7 +39,9 @@ import { GenSelectComponent } from './gen-select/gen-select.component';
     MatButtonModule,
     MatSliderModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatOptionModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]

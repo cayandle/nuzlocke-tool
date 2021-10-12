@@ -1,10 +1,13 @@
 <p>gen-select works!</p>
-<!-- <h4>Basic mat-select</h4>
-<mat-form-field appearance="fill">
-  <mat-label>Game</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let food of foods" [value]="food.value">
-      {{food.viewValue}}
+<h4>Basic mat-select</h4>
+<mat-form-field appearance="fill" style="background: rgb(90, 3, 161);left: 10%;">
+  <mat-label style="color: rgb(40, 218, 5);">Game</mat-label>
+  <mat-select [(value)]="choice">
+    <mat-option #gameselect *ngFor="let game of games" [value]="game" style="color: rgb(40, 218, 5);">
+      {{game}}
     </mat-option>
   </mat-select>
-</mat-form-field> -->
+</mat-form-field>
+<br>
+<br>
+<button mat-flat-button color="primary" style="left: 10%;" (click)="SetGame(choice)">Begin The Run!</button>

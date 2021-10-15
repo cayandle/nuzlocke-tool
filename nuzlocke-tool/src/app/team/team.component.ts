@@ -15,16 +15,17 @@ export class TeamComponent implements OnInit {
   members:IPlayerOwned[] = new Array(6);
   value:number = 150;
 
-  constructor(private game:GamestateService, private pokeapi:PokeAPIService, private factory:FactoriesService) { }
-
-  ngOnInit(): void {
+  constructor(private game:GamestateService, private pokeapi:PokeAPIService, private factory:FactoriesService) {
     // this.members = this.game.team;
     for (let i = 0; i < this.members.length; i++) {
       this.members[i]=this.factory.PlayerOwnedFactory();
       this.members[i].owned.pokemon.sprite=this.pokeapi.GetBlankSlot();
-      
     }
     console.log(this.members[0].owned.pokemon.sprite);
+  }
+
+  ngOnInit(): void {
+    
   }
 
   onSlide(event:MatSliderChange){

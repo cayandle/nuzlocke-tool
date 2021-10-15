@@ -4,7 +4,7 @@
   <mat-label style="color: rgb(40, 218, 5);">Game</mat-label>
   <mat-select [(value)]="choice">
     <mat-option #gameselect *ngFor="let game of games" [value]="game" style="color: rgb(40, 218, 5);">
-      {{game}}
+      {{game.name}}
     </mat-option>
   </mat-select>
 </mat-form-field>

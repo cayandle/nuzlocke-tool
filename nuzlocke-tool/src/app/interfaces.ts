@@ -108,5 +108,6 @@ export interface IMove{
 
 export interface IGame{
   name:string;
-  region:IRegion[];
+  regions:IRegion[];
+  generation:string;
 }

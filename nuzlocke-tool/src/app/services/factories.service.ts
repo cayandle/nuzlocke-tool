@@ -84,7 +84,7 @@ export class FactoriesService {
   }
 
   GameFactory(){
-    let game:IGame = {name:"",region:[]}
+    let game:IGame = {name:"",regions:[],generation:""}
     return game;
   }
 }

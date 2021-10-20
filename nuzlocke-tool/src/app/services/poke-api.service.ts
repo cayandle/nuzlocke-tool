@@ -1,49 +1,36 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IItem, IPlayerOwned, IPokemon, IRoute } from '../interfaces';
+import { IItem, ILocation, IOwned, IPlayerOwned, IPokemon, IRegion, IRoute, ITrainer } from '../interfaces';
 import { FactoriesService } from './factories.service';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, Subscription } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PokeAPIService {
-  slot:string="";
 
-  private url = "https://pokeapi.co/api/v2/";
+  private pokeAPIurl = "https://pokeapi.co/api/v2/";
 
-  constructor(private http: HttpClient, private factory:FactoriesService) { }
+  constructor(private http: HttpClient) { }
 
-  GetPokemon(){
-
+  GetPokemon(pokemon:IPokemon){
+    return this.http.get<any>(this.pokeAPIurl+"pokemon/"+pokemon.name);
   }
 
   GetItem(){
 
   }
 
-  GetLocation(route:string){
-
+  GetRouteInfo(route:IRoute){
+    return this.http.get<any>(this.pokeAPIurl+"location/"+route.name);
   }
 
-  GetRoute(region:string){
-    let routeObj = {name:""};
-    let routeNames:IRoute[] = [];
-    let routeSub = this.http.get<any>(this.url+"region/"+region).subscribe(result =>
-      {for(let i = 0; i < result.locations.length; i++){
-        routeObj = result.locations[i];
-        routeNames.push(this.factory.RouteFactory());
-        routeNames[i].name = routeObj.name;
-      }}
-      );
-      routeSub.unsubscribe;
-    return routeNames;
+  GetRegionInfo(region:IRegion){
+    return this.http.get<any>(this.pokeAPIurl+"region/"+region.name);
   }
 
-  GetBlankSlot(){
-    this.http.get<any>(this.url+"item/poke-ball").subscribe(result => this.slot = result.sprites.default);
-    console.log(this.slot);
-    return this.slot;
+  BlankSlotSprite(){
+    return this.http.get<any>(this.pokeAPIurl+"item/poke-ball");
   }
 
   GetMove(){

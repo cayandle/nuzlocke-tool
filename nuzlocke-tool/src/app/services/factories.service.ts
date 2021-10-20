@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { IPokemon, IMove, IAbility, IItem, IOwned, ITrainer, ITM, ILocation, IShop, IBadge, IRoute, IPlayerOwned, IWild, IBuyable, IRegion, IGame } from '../interfaces';
+import { IPokemon, IMove, IAbility, IItem, IOwned, ITrainer, ITM, ILocation, IShop, IBadge, IRoute, IPlayerOwned, IWild, IBuyable, IRegion, IGame, IPlayer } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -24,7 +24,7 @@ export class FactoriesService {
   }
 
   PokemonFactory(){
-    let pokemon:IPokemon = {name:"",sprite:"",EVType:"",EVAmount:0,possibleItems:[],possibleMoves:[],possibleAbilities:[]}
+    let pokemon:IPokemon = {name:"",sprite:"",EVType:"",EVAmount:0,possibleMoves:[],possibleAbilities:[],evolvable:false}
     return pokemon;
   }
 
@@ -44,7 +44,7 @@ export class FactoriesService {
   }
 
   WildFactory(){
-    let wild:IWild = {pokemon:this.PokemonFactory(),method:"",possibleLevels:[],odds:0,moves:[]}
+    let wild:IWild = {pokemon:this.PokemonFactory(),method:"",possibleLevels:[],odds:0,moves:[],possibleItems:[]}
     return wild;
   }
 
@@ -86,5 +86,10 @@ export class FactoriesService {
   GameFactory(){
     let game:IGame = {name:"",regions:[],generation:""}
     return game;
+  }
+
+  PlayerFactory(){
+    let player:IPlayer = {name:"",team:[],box:[],grave:[],badges:[],tms:[],game:this.GameFactory()}
+    return player;
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { IGame, IRegion, IRoute } from '../interfaces';
+import { Router } from '@angular/router';
+import { IGame, ILocation, IRegion, IRoute } from '../interfaces';
 import { FactoriesService } from '../services/factories.service';
 import { GamestateService } from '../services/gamestate.service';
 import { PokeAPIService } from '../services/poke-api.service';
@@ -48,7 +49,9 @@ export class GenSelectComponent implements OnInit {
 
   choice:IGame;
 
-  constructor(private factory:FactoriesService, private game:GamestateService, private pokeapi:PokeAPIService) {
+  locations:ILocation[] = [];
+
+  constructor(private factory:FactoriesService, private gamestate:GamestateService, private router:Router) {
     this.choice = this.factory.GameFactory();
    }
 
@@ -122,11 +125,7 @@ export class GenSelectComponent implements OnInit {
       default:
         break;
     }
-    for(let i = 0; i < game.regions.length; i++){
-      game.regions[i].routes = this.pokeapi.GetRoute(game.regions[i].name);
-    }
-    this.game.game=game;
-    console.log(this.game.game);
+    this.gamestate.game=game;
+    this.router.navigate(['/map']);
   }
-
 }

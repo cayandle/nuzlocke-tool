@@ -11,3 +11,9 @@
 <br>
 <br>
 <button mat-flat-button color="primary" style="left: 10%;" (click)="SetGame(choice)">Begin The Run!</button>
+
+
+
+<div>
+  <button mat-flat-button *ngFor="let location of locations" color="primary" style="left: 10%;">{{location.name}}</button>
+</div>

@@ -3,9 +3,9 @@ export interface IPokemon{
     sprite:string;
     EVType:string;
     EVAmount:number;
-    possibleItems:IItem[];
     possibleMoves:IMove[];
     possibleAbilities:IAbility[];
+    evolvable:boolean;
   }
 
 export interface IAbility{
@@ -32,6 +32,7 @@ export interface IPlayerOwned{
 export interface IWild{
   pokemon:IPokemon;  
   method:string;
+  possibleItems:IItem[];
   possibleLevels:number[];
   odds:number;
   moves:IMove[];
@@ -110,4 +111,14 @@ export interface IGame{
   name:string;
   regions:IRegion[];
   generation:string;
+}
+
+export interface IPlayer{
+  name:string;
+  team:IPlayerOwned[];
+  box:IPlayerOwned[];
+  grave:IPlayerOwned[];
+  badges:IBadge[];
+  tms:ITM[];
+  game:IGame;
 }

@@ -125,7 +125,7 @@ export class GenSelectComponent implements OnInit {
       default:
         break;
     }
-    this.gamestate.game=game;
+    this.gamestate.game = game;
     this.router.navigate(['/map']);
   }
 }

@@ -13,7 +13,7 @@ import { PokeAPIService } from '../services/poke-api.service';
 export class TeamComponent implements OnInit {
 
   members:IPlayerOwned[] = new Array(6);
-  value:number = 150;
+  value:number = 90;
 
   constructor(private game:GamestateService) {  }
 

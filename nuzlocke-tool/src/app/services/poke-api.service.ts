@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IItem, ILocation, IOwned, IPlayerOwned, IPokemon, IRegion, IRoute, ITrainer } from '../interfaces';
+import { IAbility, IItem, ILocation, IMove, IOwned, IPlayerOwned, IPokemon, IRegion, IRoute, ITrainer } from '../interfaces';
 import { FactoriesService } from './factories.service';
 import { BehaviorSubject, Subscription } from 'rxjs';
 
@@ -13,31 +13,35 @@ export class PokeAPIService {
 
   constructor(private http: HttpClient) { }
 
-  GetPokemon(pokemon:IPokemon){
-    return this.http.get<any>(this.pokeAPIurl+"pokemon/"+pokemon.name);
+  GetPokemon(pokemon:string){
+    return this.http.get<any>(this.pokeAPIurl+"pokemon/"+pokemon);
   }
 
-  GetItem(){
-
+  GetItem(item:string){
+    return this.http.get<any>(this.pokeAPIurl+"item/"+item);
   }
 
-  GetRouteInfo(route:IRoute){
-    return this.http.get<any>(this.pokeAPIurl+"location/"+route.name);
+  GetRoute(route:string){
+    return this.http.get<any>(this.pokeAPIurl+"location/"+route);
   }
 
-  GetRegionInfo(region:IRegion){
-    return this.http.get<any>(this.pokeAPIurl+"region/"+region.name);
+  GetRegion(region:string){
+    return this.http.get<any>(this.pokeAPIurl+"region/"+region);
   }
 
   BlankSlotSprite(){
     return this.http.get<any>(this.pokeAPIurl+"item/poke-ball");
   }
 
-  GetMove(){
-
+  GetMove(move:string){
+    return this.http.get<any>(this.pokeAPIurl+"move/"+move);
   }
 
-  GetAbility(){
+  GetAbility(ability:string){
+    return this.http.get<any>(this.pokeAPIurl+"ability/"+ability);
+  }
 
+  GetWildEncounters(location:string){
+    return this.http.get<any>(this.pokeAPIurl+"location-area/"+location);
   }
 }

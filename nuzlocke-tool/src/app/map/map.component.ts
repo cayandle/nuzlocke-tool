@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { IRegion, IRoute } from '../interfaces';
 import { GamestateService } from '../services/gamestate.service';
 
@@ -10,15 +11,18 @@ import { GamestateService } from '../services/gamestate.service';
 export class MapComponent implements OnInit {
 
   mapImage:string = "";
-  regions:IRegion[] = [];
+  routes:IRoute[] = [];
 
-  constructor(private gamestate:GamestateService) { }
+  constructor(private gamestate:GamestateService, private router:Router) { }
 
   ngOnInit(): void {
-    this.regions = this.gamestate.game.regions;
-    for(let i = 0; i < this.regions.length; i++){
-      this.gamestate.GetRoutes();
-    }
+    this.gamestate.routes.subscribe(result => this.routes = result);
+    this.gamestate.GetRoutes();
+  }
+
+  SelectRoute(route:string){
+    this.gamestate.GetLocations(route);
+    this.router.navigate(["/route"]);
   }
 
   

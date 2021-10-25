@@ -1,4 +1,4 @@
 <p>map works!</p>
 <div>
-    <button mat-flat-button *ngFor="let region of regions" color="primary" style="left: 10%;">{{region.name}}</button>
+    <button mat-flat-button *ngFor="let route of routes" color="primary" style="left: 10%;" (click) = "SelectRoute(route.name)">{{route.name}}</button>
   </div>

@@ -4,6 +4,7 @@ import { BoxComponent } from './box/box.component';
 import { GenSelectComponent } from './gen-select/gen-select.component';
 import { GraveComponent } from './grave/grave.component';
 import { MapComponent } from './map/map.component';
+import { RouteComponent } from './route/route.component';
 import { TeamComponent } from './team/team.component';
 
 const routes: Routes = [
@@ -26,6 +27,10 @@ const routes: Routes = [
 {
   path:'game',
   component:GenSelectComponent
+},
+{
+  path:'route',
+  component:RouteComponent
 }
 ];
 

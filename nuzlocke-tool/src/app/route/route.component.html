@@ -1,1 +1,7 @@
 <p>route works!</p>
+<div>
+    <button mat-flat-button *ngFor="let location of locations" color="primary" style="left: 10%;" (click)="GetLocationInfo(location.name)">{{location.name}}</button>
+</div>
+<div>
+  <button mat-flat-button *ngFor="let pokemon of encounters" color="primary" style="left: 10%;">{{pokemon.pokemon.name}}</button>
+</div>

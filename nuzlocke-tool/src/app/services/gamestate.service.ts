@@ -68,9 +68,20 @@ export class GamestateService {
     this.pokeapi.GetWildEncounters(location).subscribe((result) => {
       let encounters:IWild[] = [];
       result.pokemon_encounters.forEach((element:any) => {
-        let pokemon:IWild = this.factory.WildFactory();
-        pokemon.pokemon.name = element.pokemon.name;
-        encounters.push(pokemon);
+        element.version_details.forEach((secondElement:any)=> {
+          if(this.game.name.toLowerCase() == secondElement.version.name){
+            let pokemon:IWild = this.factory.WildFactory();
+            pokemon.pokemon.name = element.pokemon.name;
+            pokemon.odds = secondElement.max_chance;
+            secondElement.encounter_details.forEach((thirdElement:any)=> {
+              pokemon.method = thirdElement.method.name;
+              for(let i = thirdElement.min_level; i <= thirdElement.max_level; i++){
+                pokemon.possibleLevels.push(i);
+              }
+            })
+            encounters.push(pokemon);
+          }
+        });
       });
       this.wildPokemon.next(encounters);
     });

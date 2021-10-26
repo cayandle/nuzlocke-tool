@@ -1,7 +1,22 @@
 <p>route works!</p>
+<button mat-flat-button routerLink="/map">
+  Region Map
+</button>
+  <table>
+    <thead>
+    <th>
+      <button mat-flat-button *ngFor="let location of locations" color="primary" style="left: 10%;" (click)="GetLocationInfo(location.name)">{{location.name | titlecase}}</button>
+    </th>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+      <button mat-flat-button *ngFor="let pokemon of encounters" color="primary" style="left: 10%;">{{pokemon.pokemon.name | titlecase}} {{pokemon.method}} {{pokemon.odds}}</button>
+    </td>
+    </tr>
+  </tbody>
+  </table>
+  
 <div>
-    <button mat-flat-button *ngFor="let location of locations" color="primary" style="left: 10%;" (click)="GetLocationInfo(location.name)">{{location.name}}</button>
-</div>
-<div>
-  <button mat-flat-button *ngFor="let pokemon of encounters" color="primary" style="left: 10%;">{{pokemon.pokemon.name}}</button>
+  
 </div>

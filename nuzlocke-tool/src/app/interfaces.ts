@@ -56,12 +56,15 @@ export interface ILocation{
   trainers:ITrainer[];
   items:IItem[];
   shops:IShop[];
+  displayname:string;
+  methods:string[];
 }
 
 export interface IRoute{
   name:string;
   locations:ILocation[];
   caught:boolean;
+  displayname:string;
 }
 
 export interface IShop{

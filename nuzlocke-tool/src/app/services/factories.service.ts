@@ -29,7 +29,7 @@ export class FactoriesService {
   }
 
   RouteFactory(){
-    let route:IRoute = {name:"",locations:[],caught:false}
+    let route:IRoute = {name:"",locations:[],caught:false, displayname:""}
     return route;
   }
 
@@ -59,7 +59,7 @@ export class FactoriesService {
   }
 
   LocationFactory(){
-    let location:ILocation = {name:"",encounters:[],trainers:[],items:[],shops:[]}
+    let location:ILocation = {name:"",encounters:[],trainers:[],items:[],shops:[], displayname:"", methods:[]}
     return location;
   }
 
